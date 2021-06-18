@@ -7,12 +7,12 @@ from django.forms import widgets
 
 
 class Contact(models.Model):
-    note = models.ForeignKey(
-        "Note",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-    )
+    # note = models.ForeignKey(
+        # "Note",
+        # on_delete=models.CASCADE,
+        # null=True,
+        # blank=True,
+    # )
     phone_regex = RegexValidator(
         regex=r'^\+?\d{10}$',
         message="Phone number must be entered in the format: '+9999999999'.")

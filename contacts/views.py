@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Contact
+from .models import Contact, Note
 from .forms import ContactForm
 from .note_form import NoteForm
 
@@ -49,29 +49,16 @@ def delete_contact(request, pk):
                   {"contact": contact})
 
 ### add notes
-def add_note(request, pk):
-    # contact = get_object_or_404(Contact, pk=pk)
+def add_note(request,pk):
+    note = get_object_or_404(Note, pk=pk)
     if request.method == 'GET':
-        new_note = NoteForm()
+        note = NoteForm()
     else:
-        new_note = NoteForm(data=request.POST)
-        if new_note.is_valid():
-            new_note.save()
+        note = NoteForm(data=request.POST)
+        if note.is_valid():
+            note.save()
             return redirect(to='list_contacts')
 
     return render(request, "contacts/add_note.html", {
-        "note": new_note,
-        # "contact": contact
+        "note": note
     })
-
-
-def add_contact(request):
-    if request.method == 'GET':
-        form = ContactForm()
-    else:
-        form = ContactForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(to='list_contacts')
-
-    return render(request, "contacts/add_contact.html", {"form": form})

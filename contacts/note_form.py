@@ -7,5 +7,5 @@ class NoteForm(ModelForm):
         widgets = {"note": Textarea (attrs = {"cols":80, "rows":20})}
         model = Note
         fields = [
-            'note',
+            'note_name'
         ]
