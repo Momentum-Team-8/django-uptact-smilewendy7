@@ -8,7 +8,7 @@ from django.forms import widgets
 
 class Contact(models.Model):
     note = models.ForeignKey(
-        "Note", 
+        "Note",
         on_delete=models.CASCADE,
         null=True,
         blank=True,

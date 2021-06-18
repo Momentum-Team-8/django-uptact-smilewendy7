@@ -43,16 +43,18 @@
     {% endif %}
 
     <!-- notes -->
-    {% if contact.note %}
+    <!-- {% if contact.note %}
     <div class="flex">
       <div class="pr2"><i class="icofont-ui-note"></i></div>
       <div>{{ contact.note }}</div>
     </div>
-    {% endif %}
+    {% endif %} -->
 
     <p>
       <a href="{% url 'edit_contact' pk=contact.pk %}">Edit Contact</a><br>    
       <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a>
+      <!-- Note -->
+      <a class="red" href="{% url 'add_note' pk=contact.pk %}">Add Note</a>
     </p>
   </div>
   {% endfor %}

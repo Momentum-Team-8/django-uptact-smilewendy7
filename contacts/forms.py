@@ -1,10 +1,9 @@
-from django.forms import ModelForm, Textarea
-from .models import Contact, Note
+from django.forms import ModelForm
+from .models import Contact
 
 
 class ContactForm(ModelForm):
     class Meta:
-        widgets = {"note": Textarea (attrs = {"cols":80, "rows":20})}
         model = Contact
         fields = [
             'name',
@@ -16,5 +15,4 @@ class ContactForm(ModelForm):
             'phone_number',
             'email',
             'birthday',
-            'note',
         ]
